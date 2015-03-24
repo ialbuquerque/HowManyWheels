@@ -10,16 +10,21 @@ public class ResponseProcessor {
 
     public static void processResponse(String response) {
         Automobile automobile = new Automobile();
-        if (response.equals("1")) {
-            automobile.setType(AUTOMOBILE_TYPE_CAR);
-            automobile.setNumberOfWheels(4);
-            IOHandler.sendAnswer(automobile);
-        } else if (response.equals("2")) {
-            automobile.setType(AUTOMOBILE_TYPE_MOTORCYCLE);
-            automobile.setNumberOfWheels(2);
-            IOHandler.sendAnswer(automobile);
-        } else {
-            IOHandler.sendErrorMessage(response);
+
+        switch (response) {
+            case "1":
+                automobile.setType(AUTOMOBILE_TYPE_CAR);
+                automobile.setNumberOfWheels(4);
+                IOHandler.sendAnswer(automobile);
+                break;
+            case "2":
+                automobile.setType(AUTOMOBILE_TYPE_MOTORCYCLE);
+                automobile.setNumberOfWheels(2);
+                IOHandler.sendAnswer(automobile);
+                break;
+            default:
+                IOHandler.sendErrorMessage(response);
+                break;
         }
 
         IOHandler.sendStartMessage();

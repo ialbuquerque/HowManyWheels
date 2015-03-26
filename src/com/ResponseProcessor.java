@@ -1,6 +1,7 @@
 package com;
 
 import static com.AutomobileType.*;
+import static com.Main.start;
 
 /**
  * Created by isa on 3/24/15.
@@ -13,14 +14,10 @@ public class ResponseProcessor {
 
         switch (response) {
             case "1":
-                automobile.setType(AUTOMOBILE_TYPE_CAR);
-                automobile.setNumberOfWheels(4);
-                IOHandler.sendAnswer(automobile);
+                processCar(automobile);
                 break;
             case "2":
-                automobile.setType(AUTOMOBILE_TYPE_MOTORCYCLE);
-                automobile.setNumberOfWheels(2);
-                IOHandler.sendAnswer(automobile);
+                processMotorcycle(automobile);
                 break;
             case "9":
                 System.out.println("Você está finalizando o programa!");
@@ -29,7 +26,21 @@ public class ResponseProcessor {
                 IOHandler.sendErrorMessage(response);
                 break;
         }
+        
+        if (!response.equals("9")) {
+            start();
+        }
+    }
 
-        IOHandler.sendStartMessage();
+    private static void processMotorcycle(Automobile automobile) {
+        automobile.setType(AUTOMOBILE_TYPE_MOTORCYCLE);
+        automobile.setNumberOfWheels(2);
+        IOHandler.sendAnswer(automobile);
+    }
+
+    static void processCar(Automobile automobile) {
+        automobile.setType(AUTOMOBILE_TYPE_CAR);
+        automobile.setNumberOfWheels(4);
+        IOHandler.sendAnswer(automobile);
     }
 }

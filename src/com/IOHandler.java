@@ -8,7 +8,11 @@ import java.util.Scanner;
 public final class IOHandler {
 
     public static void sendStartMessage() {
-        System.out.println("Saiba quantas rodas tem o seu automóvel. Digite:\n1 para carro\n2 para moto\nResposta: ");
+        System.out.print("Saiba quantas rodas tem o seu automóvel. Digite:\n" +
+                "1 para carro\n" +
+                "2 para moto\n" +
+                "9 para sair\n" +
+                "Resposta: ");
         getInput();
     }
 

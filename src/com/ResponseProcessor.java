@@ -22,6 +22,9 @@ public class ResponseProcessor {
                 automobile.setNumberOfWheels(2);
                 IOHandler.sendAnswer(automobile);
                 break;
+            case "9":
+                System.out.println("Você está finalizando o programa!");
+                break;
             default:
                 IOHandler.sendErrorMessage(response);
                 break;
